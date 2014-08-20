@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "PDFImage"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Render PDF files into UIImage"
   s.description  = "A simple utility to help you render PDF files into UIImage."
   s.homepage     = "https://github.com/sodastsai/PDFImage"
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.source       = { :git => "https://github.com/sodastsai/PDFImage.git", :tag => "v0.0.1" }
+  s.source       = { :git => "https://github.com/sodastsai/PDFImage.git", :tag => "v0.0.2" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
