@@ -36,6 +36,8 @@ typedef NS_ENUM(NSUInteger, PIPDFBox) {
 @interface PIPDFPage : NSObject
 
 - (CGRect)rectOfPDFBox:(PIPDFBox)pdfBox;
+
+- (UIImage *)image;
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox;
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox scale:(CGFloat)scale;
 

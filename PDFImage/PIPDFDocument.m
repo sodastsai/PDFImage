@@ -25,9 +25,19 @@
 #import "PIPDFPage_Internal.h"
 #import <CoreGraphics/CoreGraphics.h>
 
-@interface PIPDFDocument () {
-    CGPDFDocumentRef _pdfDocument;
+@interface PIPDFDocumentPageEnumerator : NSEnumerator {
+    PIPDFDocument *_pdfDocument;
+
+    NSInteger currentPageIndex;
 }
+
+- (instancetype)initWithPDFDocument:(PIPDFDocument *)document;
+
+@end
+
+@interface PIPDFDocument ()
+
+@property(nonatomic, assign, readonly) CGPDFDocumentRef pdfDocument;
 
 @end
 
@@ -83,6 +93,31 @@
         return [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
     }
     return nil;
+}
+
+- (NSEnumerator *)pageEnumerator {
+    return [[PIPDFDocumentPageEnumerator alloc] initWithPDFDocument:self];
+}
+
+@end
+
+@implementation PIPDFDocumentPageEnumerator
+
+- (instancetype)initWithPDFDocument:(PIPDFDocument *)document {
+    if (self = [super init]) {
+        currentPageIndex = 1;
+        _pdfDocument = document;
+    }
+    return self;
+}
+
+- (id)nextObject {
+    if (currentPageIndex > CGPDFDocumentGetNumberOfPages(_pdfDocument.pdfDocument)) {
+        return nil;
+    } else {
+        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(_pdfDocument.pdfDocument, currentPageIndex++);
+        return [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
+    }
 }
 
 @end

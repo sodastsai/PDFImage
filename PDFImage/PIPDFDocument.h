@@ -36,7 +36,8 @@
 - (instancetype)initWithData:(NSData *)data;
 
 @property(nonatomic, assign, readonly) NSUInteger numberOfPages;
-
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber;
+
+- (NSEnumerator *)pageEnumerator;
 
 @end

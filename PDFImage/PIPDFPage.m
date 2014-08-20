@@ -51,8 +51,12 @@
     return CGPDFPageGetBoxRect(_pdfPage, (CGPDFBox)pdfBox);
 }
 
+- (UIImage *)image {
+    return UIImageFromCGPDFPageRef(_pdfPage, kCGPDFCropBox, 1.);
+}
+
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox {
-    return [self imageOfPDFBox:pdfBox scale:1.];
+    return UIImageFromCGPDFPageRef(_pdfPage, (CGPDFBox)pdfBox, 1.);
 }
 
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox scale:(CGFloat)scale {
