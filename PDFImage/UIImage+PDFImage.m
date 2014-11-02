@@ -22,6 +22,8 @@
  */
 
 #import "UIImage+PDFImage.h"
+#import "PIPDFDocument.h"
+#import "PIPDFPage.h"
 
 UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
                                  CGPDFBox pdfBox,
@@ -52,76 +54,63 @@ UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
 @implementation UIImage (PDFImage)
 
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path {
-    return [self imageWithContentsOfPDFURL:[NSURL fileURLWithPath:path]
-                                      page:1
-                                    pdfBox:kCGPDFCropBox
-                                     scale:1.];
+    return [[[PIPDFDocument PDFDocumentWithContentsOfFile:path] pageAtPageNumber:1]
+            imageOfPDFBox:PIPDFCropBox
+            scale:1.];
 }
 
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path
                                      scale:(CGFloat)scale {
-    return [self imageWithContentsOfPDFURL:[NSURL fileURLWithPath:path]
-                                      page:1
-                                    pdfBox:kCGPDFCropBox
-                                     scale:scale];
+    return [[[PIPDFDocument PDFDocumentWithContentsOfFile:path] pageAtPageNumber:1]
+            imageOfPDFBox:PIPDFCropBox
+            scale:scale];
 }
 
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path
                                       page:(NSUInteger)pageNumber
                                     pdfBox:(CGPDFBox)pdfBox
                                      scale:(CGFloat)scale {
-    return [self imageWithContentsOfPDFURL:[NSURL fileURLWithPath:path]
-                                      page:pageNumber
-                                    pdfBox:pdfBox
-                                     scale:scale];
+    return [[[PIPDFDocument PDFDocumentWithContentsOfFile:path] pageAtPageNumber:pageNumber]
+            imageOfPDFBox:(PIPDFBox)pdfBox
+            scale:scale];
 }
 
 + (instancetype)imageWithContentsOfPDFURL:(NSURL *)url {
-    return [self imageWithContentsOfPDFURL:url page:1 pdfBox:kCGPDFCropBox scale:1.];
+    return [[[PIPDFDocument PDFDocumentWithContentsOfURL:url] pageAtPageNumber:1] imageOfPDFBox:PIPDFCropBox scale:1.];
 }
 
 + (instancetype)imageWithContentsOfPDFURL:(NSURL *)url
                                     scale:(CGFloat)scale {
-    return [self imageWithContentsOfPDFURL:url page:1 pdfBox:kCGPDFCropBox scale:scale];
+    return [[[PIPDFDocument PDFDocumentWithContentsOfURL:url] pageAtPageNumber:1]
+            imageOfPDFBox:PIPDFCropBox
+            scale:scale];
 }
 
 + (instancetype)imageWithContentsOfPDFURL:(NSURL *)url
                                      page:(NSUInteger)pageNumber
                                    pdfBox:(CGPDFBox)pdfBox
                                     scale:(CGFloat)scale {
-    UIImage *result = nil;
-    CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
-    CGPDFPageRef pdfPage = CGPDFDocumentGetPage(pdfDocument, pageNumber);
-    if (pdfPage) {
-        result = UIImageFromCGPDFPageRef(pdfPage, pdfBox, scale);
-    }
-    CGPDFDocumentRelease(pdfDocument);
-    return result;
+    return [[[PIPDFDocument PDFDocumentWithContentsOfURL:url] pageAtPageNumber:pageNumber]
+            imageOfPDFBox:(PIPDFBox)pdfBox
+            scale:scale];
 }
 
 + (instancetype)imageWithContentsOfPDFData:(NSData *)data {
-    return [self imageWithContentsOfPDFData:data page:1 pdfBox:kCGPDFCropBox scale:1.];
+    return [[[PIPDFDocument PDFDocumentWithData:data] pageAtPageNumber:1] imageOfPDFBox:PIPDFCropBox scale:1.];
 }
 
 + (instancetype)imageWithContentsOfPDFData:(NSData *)data
                                      scale:(CGFloat)scale {
-    return [self imageWithContentsOfPDFData:data page:1 pdfBox:kCGPDFCropBox scale:scale];
+    return [[[PIPDFDocument PDFDocumentWithData:data] pageAtPageNumber:1] imageOfPDFBox:PIPDFCropBox scale:scale];
 }
 
 + (instancetype)imageWithContentsOfPDFData:(NSData *)data
                                       page:(NSUInteger)pageNumber
                                     pdfBox:(CGPDFBox)pdfBox
                                      scale:(CGFloat)scale {
-    UIImage *result = nil;
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    CGPDFDocumentRef pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
-    CGPDFPageRef pdfPage = CGPDFDocumentGetPage(pdfDocument, pageNumber);
-    if (pdfPage) {
-        result = UIImageFromCGPDFPageRef(pdfPage, pdfBox, scale);
-    }
-    CGPDFDocumentRelease(pdfDocument);
-    CGDataProviderRelease(dataProvider);
-    return result;
+    return [[[PIPDFDocument PDFDocumentWithData:data] pageAtPageNumber:pageNumber]
+            imageOfPDFBox:(PIPDFBox)pdfBox
+            scale:scale];
 }
 
 @end

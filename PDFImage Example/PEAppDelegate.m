@@ -7,10 +7,17 @@
 //
 
 #import "PEAppDelegate.h"
+#import <PDFImage/PDFImage.h>
 
 @implementation PEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    PIPDFDocument *pdfDocument = [PIPDFDocument
+                                  PDFDocumentWithContentsOfFile:@"/Users/sodas/Downloads/b1-sprite/8bit Orca.pdf"];
+    for (PIPDFPage *pdfPage in [pdfDocument pageEnumerator]) {
+        NSLog(@"%@", NSStringFromCGRect([pdfPage rectOfPDFBox:PIPDFCropBox]));
+    }
+
     return YES;
 }
 
