@@ -28,6 +28,7 @@
 @interface PIPDFDocumentPageEnumerator : NSEnumerator {
     PIPDFDocument *_pdfDocument;
 
+    NSInteger pdfPageCount;
     NSInteger currentPageIndex;
 }
 
@@ -107,16 +108,16 @@
     if (self = [super init]) {
         currentPageIndex = 1;
         _pdfDocument = document;
+        pdfPageCount = _pdfDocument.numberOfPages;
     }
     return self;
 }
 
 - (id)nextObject {
-    if (currentPageIndex > CGPDFDocumentGetNumberOfPages(_pdfDocument.pdfDocument)) {
+    if (currentPageIndex > pdfPageCount) {
         return nil;
     } else {
-        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(_pdfDocument.pdfDocument, currentPageIndex++);
-        return [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
+        return [_pdfDocument pageAtPageNumber:currentPageIndex++];
     }
 }
 
