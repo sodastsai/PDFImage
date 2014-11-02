@@ -39,6 +39,7 @@
 @interface PIPDFDocument ()
 
 @property(nonatomic, assign, readonly) CGPDFDocumentRef pdfDocument;
+@property(nonatomic, strong, readwrite) NSCache *pageCache;
 
 @end
 
@@ -82,6 +83,16 @@
     }
 }
 
+#pragma mark - Property
+
+- (NSCache *)pageCache {
+    if (!_pageCache) {
+        _pageCache = [[NSCache alloc] init];
+        _pageCache.countLimit = 10;
+    }
+    return _pageCache;
+}
+
 #pragma mark - Pages
 
 - (NSUInteger)numberOfPages {
@@ -89,11 +100,15 @@
 }
 
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber {
-    CGPDFPageRef pdfPage = CGPDFDocumentGetPage(_pdfDocument, pageNumber);
-    if (pdfPage) {
-        return [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
+    PIPDFPage *result = [[self pageCache] objectForKey:@(pageNumber)];
+    if (!result) {
+        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(_pdfDocument, pageNumber);
+        if (pdfPage) {
+            result = [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
+            [[self pageCache] setObject:result forKey:@(pageNumber)];
+        }
     }
-    return nil;
+    return result;
 }
 
 - (NSEnumerator *)pageEnumerator {
