@@ -35,6 +35,8 @@ typedef NS_ENUM(NSUInteger, PIPDFBox) {
 
 @interface PIPDFPage : NSObject
 
+@property(nonatomic, assign, readonly) CGPDFPageRef CGPDFPage;
+
 - (CGRect)rectOfPDFBox:(PIPDFBox)pdfBox;
 
 - (UIImage *)image;

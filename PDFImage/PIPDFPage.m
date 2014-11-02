@@ -24,9 +24,9 @@
 #import "PIPDFPage_Internal.h"
 #import "UIImage+PDFImage.h"
 
-@interface PIPDFPage () {
-    CGPDFPageRef _pdfPage;
-}
+@interface PIPDFPage ()
+
+@property(nonatomic, assign, readwrite) CGPDFPageRef CGPDFPage;
 
 @end
 
@@ -34,33 +34,33 @@
 
 - (instancetype)initWithCGPDFPageRef:(CGPDFPageRef)pdfPageRef {
     if (self = [super init]) {
-        _pdfPage = CGPDFPageRetain(pdfPageRef);
+        _CGPDFPage = CGPDFPageRetain(pdfPageRef);
     }
     return self;
 }
 
 - (void)dealloc {
-    if (_pdfPage) {
-        CGPDFPageRelease(_pdfPage), _pdfPage = NULL;
+    if (self.CGPDFPage) {
+        CGPDFPageRelease(self.CGPDFPage), self.CGPDFPage = NULL;
     }
 }
 
 #pragma mark - Method
 
 - (CGRect)rectOfPDFBox:(PIPDFBox)pdfBox {
-    return CGPDFPageGetBoxRect(_pdfPage, (CGPDFBox)pdfBox);
+    return CGPDFPageGetBoxRect(self.CGPDFPage, (CGPDFBox)pdfBox);
 }
 
 - (UIImage *)image {
-    return UIImageFromCGPDFPageRef(_pdfPage, kCGPDFCropBox, 1.);
+    return UIImageFromCGPDFPageRef(self.CGPDFPage, kCGPDFCropBox, 1.);
 }
 
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox {
-    return UIImageFromCGPDFPageRef(_pdfPage, (CGPDFBox)pdfBox, 1.);
+    return UIImageFromCGPDFPageRef(self.CGPDFPage, (CGPDFBox)pdfBox, 1.);
 }
 
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox scale:(CGFloat)scale {
-    return UIImageFromCGPDFPageRef(_pdfPage, (CGPDFBox)pdfBox, scale);
+    return UIImageFromCGPDFPageRef(self.CGPDFPage, (CGPDFBox)pdfBox, scale);
 }
 
 @end

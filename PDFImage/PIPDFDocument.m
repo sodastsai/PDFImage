@@ -23,14 +23,12 @@
 
 #import "PIPDFDocument.h"
 #import "PIPDFPage_Internal.h"
-#import <CoreGraphics/CoreGraphics.h>
 
-@interface PIPDFDocumentPageEnumerator : NSEnumerator {
-    PIPDFDocument *_pdfDocument;
+@interface PIPDFDocumentPageEnumerator : NSEnumerator
 
-    NSInteger pdfPageCount;
-    NSInteger currentPageIndex;
-}
+@property(nonatomic, strong) PIPDFDocument *pdfDocument;
+@property(nonatomic, assign) NSInteger pdfPageCount;
+@property(nonatomic, assign) NSInteger currentPageIndex;
 
 - (instancetype)initWithPDFDocument:(PIPDFDocument *)document;
 
@@ -38,7 +36,7 @@
 
 @interface PIPDFDocument ()
 
-@property(nonatomic, assign, readonly) CGPDFDocumentRef pdfDocument;
+@property(nonatomic, assign, readwrite) CGPDFDocumentRef CGPDFDocument;
 @property(nonatomic, strong, readwrite) NSCache *pageCache;
 
 @end
@@ -59,7 +57,7 @@
 
 - (instancetype)initWithContentsOfURL:(NSURL *)url {
     if (self = [super init]) {
-        _pdfDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
+        _CGPDFDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
     }
     return self;
 }
@@ -71,15 +69,15 @@
 - (instancetype)initWithData:(NSData *)data {
     if (self = [super init]) {
         CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-        _pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+        _CGPDFDocument = CGPDFDocumentCreateWithProvider(dataProvider);
         CGDataProviderRelease(dataProvider);
     }
     return self;
 }
 
 - (void)dealloc {
-    if (_pdfDocument) {
-        CGPDFDocumentRelease(_pdfDocument), _pdfDocument = NULL;
+    if (self.CGPDFDocument) {
+        CGPDFDocumentRelease(self.CGPDFDocument), self.CGPDFDocument = NULL;
     }
 }
 
@@ -96,16 +94,16 @@
 #pragma mark - Pages
 
 - (NSUInteger)numberOfPages {
-    return CGPDFDocumentGetNumberOfPages(_pdfDocument);
+    return CGPDFDocumentGetNumberOfPages(self.CGPDFDocument);
 }
 
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber {
-    PIPDFPage *result = [[self pageCache] objectForKey:@(pageNumber)];
+    PIPDFPage *result = [self.pageCache objectForKey:@(pageNumber)];
     if (!result) {
-        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(_pdfDocument, pageNumber);
+        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(self.CGPDFDocument, pageNumber);
         if (pdfPage) {
             result = [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
-            [[self pageCache] setObject:result forKey:@(pageNumber)];
+            [self.pageCache setObject:result forKey:@(pageNumber)];
         }
     }
     return result;
@@ -121,18 +119,18 @@
 
 - (instancetype)initWithPDFDocument:(PIPDFDocument *)document {
     if (self = [super init]) {
-        currentPageIndex = 1;
+        _currentPageIndex = 1;
         _pdfDocument = document;
-        pdfPageCount = _pdfDocument.numberOfPages;
+        _pdfPageCount = _pdfDocument.numberOfPages;
     }
     return self;
 }
 
 - (id)nextObject {
-    if (currentPageIndex > pdfPageCount) {
+    if (self.currentPageIndex > self.pdfPageCount) {  // CGPDFDocumentGetPage is 1-based.
         return nil;
     } else {
-        return [_pdfDocument pageAtPageNumber:currentPageIndex++];
+        return [self.pdfDocument pageAtPageNumber:self.currentPageIndex++];
     }
 }
 

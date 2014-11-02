@@ -22,10 +22,13 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class PIPDFPage;
 
 @interface PIPDFDocument : NSObject
+
+@property(nonatomic, assign, readonly) CGPDFDocumentRef CGPDFDocument;
 
 + (instancetype)PDFDocumentWithContentsOfURL:(NSURL *)url;
 + (instancetype)PDFDocumentWithContentsOfFile:(NSString *)path;
