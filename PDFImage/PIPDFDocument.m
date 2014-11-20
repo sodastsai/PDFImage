@@ -37,7 +37,6 @@
 @interface PIPDFDocument ()
 
 @property(nonatomic, assign, readwrite) CGPDFDocumentRef CGPDFDocument;
-@property(nonatomic, strong, readwrite) NSCache *pageCache;
 
 @end
 
@@ -81,14 +80,20 @@
     }
 }
 
-#pragma mark - Property
+#pragma mark - Cache
 
-- (NSCache *)pageCache {
-    if (!_pageCache) {
-        _pageCache = [[NSCache alloc] init];
-        _pageCache.countLimit = 10;
-    }
-    return _pageCache;
++ (NSCache *)sharedPageCache {
+    static NSCache *sharedPageCache = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedPageCache = [[NSCache alloc] init];
+        sharedPageCache.countLimit = 30;
+    });
+    return sharedPageCache;
+}
+
++ (NSString *)cacheForPDFPageAtPageNumber:(NSUInteger)pageNumber inDocument:(PIPDFDocument *)pdfDocument {
+    return [NSString stringWithFormat:@"shared-page-cache.doc=%p-page=%ld", pdfDocument, (long)pageNumber];
 }
 
 #pragma mark - Pages
@@ -98,12 +103,13 @@
 }
 
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber {
-    PIPDFPage *result = [self.pageCache objectForKey:@(pageNumber)];
+    NSString *cacheKey = [[self class] cacheForPDFPageAtPageNumber:pageNumber inDocument:self];
+    PIPDFPage *result = [[[self class] sharedPageCache] objectForKey:cacheKey];
     if (!result) {
         CGPDFPageRef pdfPage = CGPDFDocumentGetPage(self.CGPDFDocument, pageNumber);
         if (pdfPage) {
             result = [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
-            [self.pageCache setObject:result forKey:@(pageNumber)];
+            [[[self class] sharedPageCache] setObject:result forKey:cacheKey];
         }
     }
     return result;
