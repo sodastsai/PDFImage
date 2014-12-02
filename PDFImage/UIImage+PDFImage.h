@@ -30,6 +30,8 @@ extern UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
 
 @interface UIImage (PDFImage)
 
++ (NSData *)dataOfPDFContentsWithImages:(NSArray *)images;
+
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path;
 
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path

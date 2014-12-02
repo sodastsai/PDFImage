@@ -36,6 +36,7 @@ UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
     UIGraphicsBeginImageContextWithOptions(canvasSize, NO, 0.);
     CGContextRef context = UIGraphicsGetCurrentContext();
     // Make CGContextRef fit to UIKit
+    CGContextSaveGState(context);
     CGContextTranslateCTM(context, 0.0, canvasSize.height);
     CGContextScaleCTM(context, 1.0, -1.0);
     // Setup image location
@@ -43,6 +44,7 @@ UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
     // Setup scale and draw
     CGContextScaleCTM(context, scale, scale);
     CGContextDrawPDFPage(context, pdfPage);
+    CGContextRestoreGState(context);
     // Get image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     // Close context
@@ -52,6 +54,37 @@ UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
 }
 
 @implementation UIImage (PDFImage)
+
++ (NSData *)dataOfPDFContentsWithImages:(NSArray *)images {
+    // Find max page size
+    CGSize __block maxPageSize;
+    [images enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
+        maxPageSize.width = MAX(maxPageSize.width, image.size.width*image.scale);
+        maxPageSize.height = MAX(maxPageSize.height, image.size.height*image.scale);
+    }];
+    maxPageSize.width = ceil(maxPageSize.width);
+    maxPageSize.height = ceil(maxPageSize.height);
+    size_t size = maxPageSize.width*maxPageSize.height*[images count];
+
+    // Create data and context
+    NSMutableData *pdfFileData = [[NSMutableData alloc] initWithCapacity:size];
+    CGDataConsumerRef pdfDataConsumer = CGDataConsumerCreateWithCFData((__bridge CFMutableDataRef)pdfFileData);
+    CGRect mediaBox = CGRectMake(0., 0., maxPageSize.width, maxPageSize.height);
+    CGContextRef pdfContext = CGPDFContextCreate(pdfDataConsumer, &mediaBox, NULL);
+
+    // Go
+    [images enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
+        CGRect mediaBox = CGRectMake(0, 0, image.size.width*image.scale, image.size.height*image.scale);
+        CGContextBeginPage(pdfContext, &mediaBox);
+        CGContextDrawImage(pdfContext, mediaBox, [image CGImage]);
+        CGContextEndPage(pdfContext);
+    }];
+
+    // Done
+    CGContextRelease(pdfContext);
+    CGDataConsumerRelease(pdfDataConsumer);
+    return [NSData dataWithData:pdfFileData];
+}
 
 + (instancetype)imageWithContentsOfPDFFile:(NSString *)path {
     return [[[PIPDFDocument PDFDocumentWithContentsOfFile:path] pageAtPageNumber:1]
