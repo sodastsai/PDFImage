@@ -40,6 +40,7 @@
 
 @property(nonatomic, assign, readonly) NSUInteger numberOfPages;
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 - (NSEnumerator *)pageEnumerator;
 

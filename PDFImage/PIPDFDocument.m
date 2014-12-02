@@ -119,6 +119,10 @@
     return [[PIPDFDocumentPageEnumerator alloc] initWithPDFDocument:self];
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    return [self pageAtPageNumber:idx];
+}
+
 @end
 
 @implementation PIPDFDocumentPageEnumerator
