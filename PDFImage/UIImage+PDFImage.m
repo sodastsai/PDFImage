@@ -25,9 +25,11 @@
 #import "PIPDFDocument.h"
 #import "PIPDFPage.h"
 
-UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
-                                 CGPDFBox pdfBox,
-                                 CGFloat scale) {
+static inline
+void _CGPDFPageGetBitmapContext(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale, void(^block)(CGContextRef)) {
+    if (!pdfPage) {
+        return;
+    }
     // Calc image size
     CGRect pdfRect = CGPDFPageGetBoxRect(pdfPage, pdfBox);
     CGSize canvasSize = CGSizeMake(pdfRect.size.width * scale,
@@ -45,11 +47,27 @@ UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
     CGContextScaleCTM(context, scale, scale);
     CGContextDrawPDFPage(context, pdfPage);
     CGContextRestoreGState(context);
-    // Get image
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    // Call block
+    if (block) {
+        block(context);
+    }
     // Close context
     UIGraphicsEndImageContext();
-    // Return image
+}
+
+UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale) {
+    UIImage *__block image = nil;
+    _CGPDFPageGetBitmapContext(pdfPage, pdfBox, scale, ^(CGContextRef context) {
+        image = UIGraphicsGetImageFromCurrentImageContext();
+    });
+    return image;
+}
+
+CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale) {
+    CGImageRef __block image = NULL;
+    _CGPDFPageGetBitmapContext(pdfPage, pdfBox, scale, ^(CGContextRef context) {
+         image = CGBitmapContextCreateImage(context);
+    });
     return image;
 }
 

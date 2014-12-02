@@ -24,9 +24,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-extern UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage,
-                                        CGPDFBox pdfBox,
-                                        CGFloat scale);
+extern UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale);
+extern CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale);
 
 @interface UIImage (PDFImage)
 
