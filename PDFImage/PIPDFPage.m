@@ -40,8 +40,8 @@
 }
 
 - (void)dealloc {
-    if (self.CGPDFPage) {
-        CGPDFPageRelease(self.CGPDFPage), self.CGPDFPage = NULL;
+    if (_CGPDFPage) {
+        CGPDFPageRelease(_CGPDFPage), _CGPDFPage = NULL;
     }
 }
 

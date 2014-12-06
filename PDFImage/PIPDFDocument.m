@@ -75,8 +75,8 @@
 }
 
 - (void)dealloc {
-    if (self.CGPDFDocument) {
-        CGPDFDocumentRelease(self.CGPDFDocument), self.CGPDFDocument = NULL;
+    if (_CGPDFDocument) {
+        CGPDFDocumentRelease(_CGPDFDocument), _CGPDFDocument = NULL;
     }
 }
 
