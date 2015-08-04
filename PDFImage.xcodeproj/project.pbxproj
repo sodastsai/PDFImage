@@ -343,7 +343,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PI;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = sodas;
 				TargetAttributes = {
 					FEB9C24719A36D5800324DB8 = {
@@ -499,6 +499,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -590,6 +591,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "PDFImageTests/PDFImageTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -608,6 +610,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PDFImage/PDFImage-Prefix.pch";
 				INFOPLIST_FILE = "PDFImageTests/PDFImageTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -632,6 +635,7 @@
 				);
 				INFOPLIST_FILE = "PDFImage Example/PDFImage Example-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -651,6 +655,7 @@
 				GCC_PREFIX_HEADER = "PDFImage Example/PDFImage Example-Prefix.pch";
 				INFOPLIST_FILE = "PDFImage Example/PDFImage Example-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -672,6 +677,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "PDFImage ExampleTests/PDFImage ExampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -690,6 +696,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PDFImage Example/PDFImage Example-Prefix.pch";
 				INFOPLIST_FILE = "PDFImage ExampleTests/PDFImage ExampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
