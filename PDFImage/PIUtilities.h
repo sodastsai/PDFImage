@@ -1,12 +1,12 @@
 //
-//  PIPDFPage_Internal.h
+//  PIUtilities.h
 //  PDFImage
 //
-//  Created by sodas on 8/19/14.
-//  Copyright (c) 2014 sodas. All rights reserved.
+//  Created by sodas on 8/4/15.
+//  Copyright © 2015 sodas. All rights reserved.
 //
 /*
- Copyright 2014 sodastsai.
+ Copyright 2014-2015 sodastsai.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -21,11 +21,8 @@
  limitations under the License.
  */
 
-#import "PIPDFPage.h"
-#import <CoreGraphics/CoreGraphics.h>
-
-@interface PIPDFPage ()
-
-- (nullable instancetype)initWithCGPDFPageRef:(nullable CGPDFPageRef)pdfPageRef NS_DESIGNATED_INITIALIZER;
-
-@end
+#if __has_feature(objc_generics)
+#define PIGenerics(...) <__VA_ARGS__>
+#else
+#define PIGenerics(...)
+#endif

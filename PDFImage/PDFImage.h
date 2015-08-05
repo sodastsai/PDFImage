@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 sodas. All rights reserved.
 //
 /*
- Copyright 2014 sodastsai.
+ Copyright 2014-2015 sodastsai.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+
+#import <PDFImage/PIUtilities.h>
 
 #import <PDFImage/PIPDFDocument.h>
 #import <PDFImage/PIPDFPage.h>

@@ -23,25 +23,31 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <PDFImage/PIUtilities.h>
 
 @class PIPDFPage;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PIPDFDocument : NSObject
 
-@property(nonatomic, assign, readonly) CGPDFDocumentRef CGPDFDocument;
+@property (nonatomic, assign, readonly) CGPDFDocumentRef CGPDFDocument;
 
-+ (instancetype)PDFDocumentWithContentsOfURL:(NSURL *)url;
-+ (instancetype)PDFDocumentWithContentsOfFile:(NSString *)path;
-+ (instancetype)PDFDocumentWithData:(NSData *)data;
++ (nullable instancetype)PDFDocumentWithContentsOfURL:(nullable NSURL *)url;
++ (nullable instancetype)PDFDocumentWithContentsOfFile:(nullable NSString *)path;
++ (nullable instancetype)PDFDocumentWithData:(NSData *)data;
 
-- (instancetype)initWithContentsOfURL:(NSURL *)url;
-- (instancetype)initWithContentsOfFile:(NSString *)path;
-- (instancetype)initWithData:(NSData *)data;
+- (nullable instancetype)initWithContentsOfURL:(nullable NSURL *)url;
+- (nullable instancetype)initWithContentsOfFile:(nullable NSString *)path;
+- (nullable instancetype)initWithData:(NSData *)data;
+- (nullable instancetype)initWithCGPDFDocument:(CGPDFDocumentRef)pdfDocumentRef NS_DESIGNATED_INITIALIZER;
 
-@property(nonatomic, assign, readonly) NSUInteger numberOfPages;
+@property (readonly) NSUInteger numberOfPages;
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber;
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (PIPDFPage *)objectAtIndexedSubscript:(NSUInteger)idx;
 
-- (NSEnumerator *)pageEnumerator;
+@property (readonly) NSEnumerator PIGenerics(PIPDFPage *) *pageEnumerator;
 
 @end
+
+NS_ASSUME_NONNULL_END

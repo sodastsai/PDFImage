@@ -24,41 +24,43 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern UIImage *UIImageFromCGPDFPageRef(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale);
-extern CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale);
+extern CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat scale) CF_RETURNS_RETAINED;
 
 @interface UIImage (PDFImage)
 
 + (NSData *)dataOfPDFContentsWithImages:(NSArray *)images;
 
-+ (instancetype)imageWithContentsOfPDFFile:(NSString *)path;
++ (nullable instancetype)imageWithContentsOfPDFFile:(nullable NSString *)path;
 
-+ (instancetype)imageWithContentsOfPDFFile:(NSString *)path
-                                     scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFFile:(nullable NSString *)path scale:(CGFloat)scale;
 
-+ (instancetype)imageWithContentsOfPDFFile:(NSString *)path
-                                      page:(NSUInteger)pageNumber
-                                    pdfBox:(CGPDFBox)pdfBox
-                                     scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFFile:(nullable NSString *)path
+                                               page:(NSUInteger)pageNumber
+                                             pdfBox:(CGPDFBox)pdfBox
+                                              scale:(CGFloat)scale;
 
-+ (instancetype)imageWithContentsOfPDFURL:(NSURL *)url;
++ (nullable instancetype)imageWithContentsOfPDFURL:(nullable NSURL *)url;
 
-+ (instancetype)imageWithContentsOfPDFURL:(NSURL *)url
-                                    scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFURL:(nullable NSURL *)url scale:(CGFloat)scale;
 
-+ (instancetype)imageWithContentsOfPDFURL:(NSURL *)url
-                                     page:(NSUInteger)pageNumber
-                                   pdfBox:(CGPDFBox)pdfBox
-                                    scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFURL:(nullable NSURL *)url
+                                              page:(NSUInteger)pageNumber
+                                            pdfBox:(CGPDFBox)pdfBox
+                                             scale:(CGFloat)scale;
 
-+ (instancetype)imageWithContentsOfPDFData:(NSData *)data;
++ (nullable instancetype)imageWithContentsOfPDFData:(NSData *)data;
 
-+ (instancetype)imageWithContentsOfPDFData:(NSData *)data
-                                     scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFData:(NSData *)data
+                                              scale:(CGFloat)scale;
 
-+ (instancetype)imageWithContentsOfPDFData:(NSData *)data
-                                      page:(NSUInteger)pageNumber
-                                    pdfBox:(CGPDFBox)pdfBox
-                                     scale:(CGFloat)scale;
++ (nullable instancetype)imageWithContentsOfPDFData:(NSData *)data
+                                               page:(NSUInteger)pageNumber
+                                             pdfBox:(CGPDFBox)pdfBox
+                                              scale:(CGFloat)scale;
 
 @end
+
+NS_ASSUME_NONNULL_END

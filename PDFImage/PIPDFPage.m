@@ -32,7 +32,14 @@
 
 @implementation PIPDFPage
 
+- (instancetype)init {
+    return [self initWithCGPDFPageRef:nil];
+}
+
 - (instancetype)initWithCGPDFPageRef:(CGPDFPageRef)pdfPageRef {
+    if (!pdfPageRef) {
+        return self = nil;
+    }
     if (self = [super init]) {
         _CGPDFPage = CGPDFPageRetain(pdfPageRef);
     }

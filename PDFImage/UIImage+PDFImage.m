@@ -38,6 +38,7 @@ void _CGPDFPageGetBitmapContext(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat s
     UIGraphicsBeginImageContextWithOptions(canvasSize, NO, 0.);
     CGContextRef context = UIGraphicsGetCurrentContext();
     // Make CGContextRef fit to UIKit
+    // TODO: OS X
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, 0.0, canvasSize.height);
     CGContextScaleCTM(context, 1.0, -1.0);
@@ -82,7 +83,7 @@ CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat s
     }];
     maxPageSize.width = ceil(maxPageSize.width);
     maxPageSize.height = ceil(maxPageSize.height);
-    size_t size = maxPageSize.width*maxPageSize.height*[images count];
+    size_t size = maxPageSize.width*maxPageSize.height*images.count;
 
     // Create data and context
     NSMutableData *pdfFileData = [[NSMutableData alloc] initWithCapacity:size];
@@ -94,7 +95,7 @@ CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CGFloat s
     [images enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
         CGRect mediaBox = CGRectMake(0, 0, image.size.width*image.scale, image.size.height*image.scale);
         CGContextBeginPage(pdfContext, &mediaBox);
-        CGContextDrawImage(pdfContext, mediaBox, [image CGImage]);
+        CGContextDrawImage(pdfContext, mediaBox, image.CGImage);
         CGContextEndPage(pdfContext);
     }];
 

@@ -24,7 +24,7 @@
 #import "PIPDFDocument.h"
 #import "PIPDFPage_Internal.h"
 
-@interface PIPDFDocumentPageEnumerator : NSEnumerator
+@interface PIPDFDocumentPageEnumerator : NSEnumerator PIGenerics(PIPDFPage *)
 
 @property(nonatomic, strong) PIPDFDocument *pdfDocument;
 @property(nonatomic, assign) NSInteger pdfPageCount;
@@ -54,22 +54,52 @@
     return [[self alloc] initWithData:data];
 }
 
+- (instancetype)init {
+    return self = [self initWithContentsOfURL:nil];
+}
+
 - (instancetype)initWithContentsOfURL:(NSURL *)url {
-    if (self = [super init]) {
-        _CGPDFDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
+    if (!url) {
+        return self = nil;
     }
-    return self;
+    CGPDFDocumentRef _pdfDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
+    if (_pdfDocument) {
+        self = [self initWithCGPDFDocument:_pdfDocument];
+        CGPDFDocumentRelease(_pdfDocument);
+        return self;
+    } else {
+        return self = nil;
+    }
 }
 
 - (instancetype)initWithContentsOfFile:(NSString *)path {
-    return [self initWithContentsOfURL:[NSURL fileURLWithPath:path]];
+    if (!path) {
+        return self = nil;
+    }
+    return self = [self initWithContentsOfURL:[NSURL fileURLWithPath:path]];
 }
 
 - (instancetype)initWithData:(NSData *)data {
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    CGPDFDocumentRef _pdfDocument = CGPDFDocumentCreateWithProvider(dataProvider);
+    CGDataProviderRelease(dataProvider);
+
+    if (_pdfDocument) {
+        self = [self initWithCGPDFDocument:_pdfDocument];
+        CGPDFDocumentRelease(_pdfDocument);
+        return self;
+    } else {
+        return self = nil;
+    }
+}
+
+- (instancetype)initWithCGPDFDocument:(CGPDFDocumentRef)pdfDocumentRef {
     if (self = [super init]) {
-        CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-        _CGPDFDocument = CGPDFDocumentCreateWithProvider(dataProvider);
-        CGDataProviderRelease(dataProvider);
+        if (pdfDocumentRef) {
+            _CGPDFDocument = CGPDFDocumentRetain(pdfDocumentRef);
+        } else {
+            return self = nil;
+        }
     }
     return self;
 }
@@ -82,7 +112,7 @@
 
 #pragma mark - Cache
 
-+ (NSCache *)sharedPageCache {
++ (NSCache PIGenerics(NSString *, PIPDFPage *) *)sharedPageCache {
     static NSCache *sharedPageCache = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -115,11 +145,11 @@
     return result;
 }
 
-- (NSEnumerator *)pageEnumerator {
+- (NSEnumerator PIGenerics(PIPDFPage *) *)pageEnumerator {
     return [[PIPDFDocumentPageEnumerator alloc] initWithPDFDocument:self];
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+- (PIPDFPage *)objectAtIndexedSubscript:(NSUInteger)idx {
     return [self pageAtPageNumber:idx];
 }
 

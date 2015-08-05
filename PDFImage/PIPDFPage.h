@@ -33,14 +33,20 @@ typedef NS_ENUM(NSUInteger, PIPDFBox) {
     PIPDFArtBox = kCGPDFArtBox,
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface PIPDFPage : NSObject
+
+- (nullable instancetype)init;
 
 @property(nonatomic, assign, readonly) CGPDFPageRef CGPDFPage;
 
 - (CGRect)rectOfPDFBox:(PIPDFBox)pdfBox;
 
-- (UIImage *)image;
+@property (readonly) UIImage *image;
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox;
 - (UIImage *)imageOfPDFBox:(PIPDFBox)pdfBox scale:(CGFloat)scale;
 
 @end
+
+NS_ASSUME_NONNULL_END
