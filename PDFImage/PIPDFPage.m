@@ -45,7 +45,8 @@
 
 - (void)dealloc {
     if (_CGPDFPage) {
-        CGPDFPageRelease(_CGPDFPage), _CGPDFPage = NULL;
+        CGPDFPageRelease(_CGPDFPage);
+        _CGPDFPage = NULL;
     }
 }
 

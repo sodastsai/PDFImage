@@ -28,7 +28,7 @@ extern CGImageRef CGPDFPageCreateImage(CGPDFPageRef pdfPage, CGPDFBox pdfBox, CG
 
 @interface UIImage (PDFImage)
 
-+ (NSData *)dataOfPDFContentsWithImages:(NSArray *)images;
++ (NSData *)dataOfPDFContentsWithImages:(NSArray<UIImage *> *)images;
 
 + (nullable instancetype)imageWithContentsOfPDFFile:(nullable NSString *)path;
 

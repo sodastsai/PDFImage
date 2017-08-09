@@ -23,6 +23,7 @@
 
 @interface PIPDFPage ()
 
-- (nullable instancetype)initWithCGPDFPageRef:(nullable CGPDFPageRef)pdfPageRef NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCGPDFPageRef:(nullable CGPDFPageRef)pdfPage
+NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(pdfPage:));
 
 @end

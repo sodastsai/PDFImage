@@ -3,31 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		FE45959B1B70C61B00AC1482 /* PIUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FE45959A1B70C61B00AC1482 /* PIUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEB9C23C19A36D5800324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
-		FEB9C24A19A36D5800324DB8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C24919A36D5800324DB8 /* XCTest.framework */; };
-		FEB9C24B19A36D5800324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
-		FEB9C24D19A36D5800324DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C24C19A36D5800324DB8 /* UIKit.framework */; };
-		FEB9C25019A36D5800324DB8 /* libPDFImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23819A36D5800324DB8 /* libPDFImage.a */; };
-		FEB9C25619A36D5800324DB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEB9C25419A36D5800324DB8 /* InfoPlist.strings */; };
-		FEB9C25819A36D5800324DB8 /* PDFImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9C25719A36D5800324DB8 /* PDFImageTests.m */; };
 		FEB9C26619A36D8C00324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
 		FEB9C26819A36D8C00324DB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C26719A36D8C00324DB8 /* CoreGraphics.framework */; };
 		FEB9C26919A36D8C00324DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C24C19A36D5800324DB8 /* UIKit.framework */; };
-		FEB9C26F19A36D8C00324DB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEB9C26D19A36D8C00324DB8 /* InfoPlist.strings */; };
-		FEB9C27119A36D8C00324DB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9C27019A36D8C00324DB8 /* main.m */; };
-		FEB9C27519A36D8C00324DB8 /* PEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9C27419A36D8C00324DB8 /* PEAppDelegate.m */; };
-		FEB9C27719A36D8C00324DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB9C27619A36D8C00324DB8 /* Images.xcassets */; };
-		FEB9C27D19A36D8C00324DB8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C24919A36D5800324DB8 /* XCTest.framework */; };
-		FEB9C27E19A36D8C00324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
-		FEB9C27F19A36D8C00324DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C24C19A36D5800324DB8 /* UIKit.framework */; };
-		FEB9C28719A36D8C00324DB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEB9C28519A36D8C00324DB8 /* InfoPlist.strings */; };
-		FEB9C28919A36D8C00324DB8 /* PDFImage_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9C28819A36D8C00324DB8 /* PDFImage_ExampleTests.m */; };
-		FEB9C29119A36DD400324DB8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB9C29019A36DD400324DB8 /* MainStoryboard.storyboard */; };
 		FEB9C29419A36E1E00324DB8 /* PIPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB9C29319A36E1E00324DB8 /* PIPDFDocument.m */; };
 		FEB9C29619A36E2E00324DB8 /* PDFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = FEB9C24019A36D5800324DB8 /* PDFImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEB9C29719A36E2E00324DB8 /* PIPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = FEB9C29219A36E1E00324DB8 /* PIPDFDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,49 +22,16 @@
 		FEF0FFCA19A38D45001B5DDF /* UIImage+PDFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF0FFC819A38D45001B5DDF /* UIImage+PDFImage.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FEB9C24E19A36D5800324DB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEB9C23019A36D5800324DB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FEB9C23719A36D5800324DB8;
-			remoteInfo = PDFImage;
-		};
-		FEB9C28019A36D8C00324DB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEB9C23019A36D5800324DB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FEB9C26419A36D8C00324DB8;
-			remoteInfo = "PDFImage Example";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FE45959A1B70C61B00AC1482 /* PIUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIUtilities.h; sourceTree = "<group>"; };
 		FEB9C23819A36D5800324DB8 /* libPDFImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPDFImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9C23B19A36D5800324DB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FEB9C23F19A36D5800324DB8 /* PDFImage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDFImage-Prefix.pch"; sourceTree = "<group>"; };
 		FEB9C24019A36D5800324DB8 /* PDFImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFImage.h; sourceTree = "<group>"; };
-		FEB9C24819A36D5800324DB8 /* PDFImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDFImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9C24919A36D5800324DB8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FEB9C24C19A36D5800324DB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		FEB9C25319A36D5800324DB8 /* PDFImageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImageTests-Info.plist"; sourceTree = "<group>"; };
-		FEB9C25519A36D5800324DB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FEB9C25719A36D5800324DB8 /* PDFImageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFImageTests.m; sourceTree = "<group>"; };
 		FEB9C26519A36D8C00324DB8 /* PDFImage Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PDFImage Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9C26719A36D8C00324DB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FEB9C26C19A36D8C00324DB8 /* PDFImage Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImage Example-Info.plist"; sourceTree = "<group>"; };
-		FEB9C26E19A36D8C00324DB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FEB9C27019A36D8C00324DB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FEB9C27219A36D8C00324DB8 /* PDFImage Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDFImage Example-Prefix.pch"; sourceTree = "<group>"; };
-		FEB9C27319A36D8C00324DB8 /* PEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEAppDelegate.h; sourceTree = "<group>"; };
-		FEB9C27419A36D8C00324DB8 /* PEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEAppDelegate.m; sourceTree = "<group>"; };
-		FEB9C27619A36D8C00324DB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FEB9C27C19A36D8C00324DB8 /* PDFImage ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PDFImage ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEB9C28419A36D8C00324DB8 /* PDFImage ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImage ExampleTests-Info.plist"; sourceTree = "<group>"; };
-		FEB9C28619A36D8C00324DB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FEB9C28819A36D8C00324DB8 /* PDFImage_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFImage_ExampleTests.m; sourceTree = "<group>"; };
-		FEB9C29019A36DD400324DB8 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FEB9C29219A36E1E00324DB8 /* PIPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIPDFDocument.h; sourceTree = "<group>"; };
 		FEB9C29319A36E1E00324DB8 /* PIPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIPDFDocument.m; sourceTree = "<group>"; };
 		FEF0FFC219A370D9001B5DDF /* PIPDFPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIPDFPage.h; sourceTree = "<group>"; };
@@ -99,17 +50,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEB9C24519A36D5800324DB8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C25019A36D5800324DB8 /* libPDFImage.a in Frameworks */,
-				FEB9C24A19A36D5800324DB8 /* XCTest.framework in Frameworks */,
-				FEB9C24D19A36D5800324DB8 /* UIKit.framework in Frameworks */,
-				FEB9C24B19A36D5800324DB8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEB9C26219A36D8C00324DB8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,16 +61,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEB9C27919A36D8C00324DB8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C27D19A36D8C00324DB8 /* XCTest.framework in Frameworks */,
-				FEB9C27F19A36D8C00324DB8 /* UIKit.framework in Frameworks */,
-				FEB9C27E19A36D8C00324DB8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,9 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				FEB9C23D19A36D5800324DB8 /* PDFImage */,
-				FEB9C25119A36D5800324DB8 /* PDFImageTests */,
-				FEB9C26A19A36D8C00324DB8 /* PDFImage Example */,
-				FEB9C28219A36D8C00324DB8 /* PDFImage ExampleTests */,
 				FEB9C23A19A36D5800324DB8 /* Frameworks */,
 				FEB9C23919A36D5800324DB8 /* Products */,
 			);
@@ -150,9 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				FEB9C23819A36D5800324DB8 /* libPDFImage.a */,
-				FEB9C24819A36D5800324DB8 /* PDFImageTests.xctest */,
 				FEB9C26519A36D8C00324DB8 /* PDFImage Example.app */,
-				FEB9C27C19A36D8C00324DB8 /* PDFImage ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,65 +118,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FEB9C25119A36D5800324DB8 /* PDFImageTests */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C25719A36D5800324DB8 /* PDFImageTests.m */,
-				FEB9C25219A36D5800324DB8 /* Supporting Files */,
-			);
-			path = PDFImageTests;
-			sourceTree = "<group>";
-		};
-		FEB9C25219A36D5800324DB8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C25319A36D5800324DB8 /* PDFImageTests-Info.plist */,
-				FEB9C25419A36D5800324DB8 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FEB9C26A19A36D8C00324DB8 /* PDFImage Example */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C27319A36D8C00324DB8 /* PEAppDelegate.h */,
-				FEB9C27419A36D8C00324DB8 /* PEAppDelegate.m */,
-				FEB9C29019A36DD400324DB8 /* MainStoryboard.storyboard */,
-				FEB9C27619A36D8C00324DB8 /* Images.xcassets */,
-				FEB9C26B19A36D8C00324DB8 /* Supporting Files */,
-			);
-			path = "PDFImage Example";
-			sourceTree = "<group>";
-		};
-		FEB9C26B19A36D8C00324DB8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C26C19A36D8C00324DB8 /* PDFImage Example-Info.plist */,
-				FEB9C26D19A36D8C00324DB8 /* InfoPlist.strings */,
-				FEB9C27019A36D8C00324DB8 /* main.m */,
-				FEB9C27219A36D8C00324DB8 /* PDFImage Example-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FEB9C28219A36D8C00324DB8 /* PDFImage ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C28819A36D8C00324DB8 /* PDFImage_ExampleTests.m */,
-				FEB9C28319A36D8C00324DB8 /* Supporting Files */,
-			);
-			path = "PDFImage ExampleTests";
-			sourceTree = "<group>";
-		};
-		FEB9C28319A36D8C00324DB8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FEB9C28419A36D8C00324DB8 /* PDFImage ExampleTests-Info.plist */,
-				FEB9C28519A36D8C00324DB8 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -287,24 +153,6 @@
 			productReference = FEB9C23819A36D5800324DB8 /* libPDFImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		FEB9C24719A36D5800324DB8 /* PDFImageTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FEB9C25E19A36D5800324DB8 /* Build configuration list for PBXNativeTarget "PDFImageTests" */;
-			buildPhases = (
-				FEB9C24419A36D5800324DB8 /* Sources */,
-				FEB9C24519A36D5800324DB8 /* Frameworks */,
-				FEB9C24619A36D5800324DB8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FEB9C24F19A36D5800324DB8 /* PBXTargetDependency */,
-			);
-			name = PDFImageTests;
-			productName = PDFImageTests;
-			productReference = FEB9C24819A36D5800324DB8 /* PDFImageTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		FEB9C26419A36D8C00324DB8 /* PDFImage Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEB9C28A19A36D8C00324DB8 /* Build configuration list for PBXNativeTarget "PDFImage Example" */;
@@ -322,24 +170,6 @@
 			productReference = FEB9C26519A36D8C00324DB8 /* PDFImage Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FEB9C27B19A36D8C00324DB8 /* PDFImage ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FEB9C28D19A36D8C00324DB8 /* Build configuration list for PBXNativeTarget "PDFImage ExampleTests" */;
-			buildPhases = (
-				FEB9C27819A36D8C00324DB8 /* Sources */,
-				FEB9C27919A36D8C00324DB8 /* Frameworks */,
-				FEB9C27A19A36D8C00324DB8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FEB9C28119A36D8C00324DB8 /* PBXTargetDependency */,
-			);
-			name = "PDFImage ExampleTests";
-			productName = "PDFImage ExampleTests";
-			productReference = FEB9C27C19A36D8C00324DB8 /* PDFImage ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -347,19 +177,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PI;
-				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = sodas;
-				TargetAttributes = {
-					FEB9C24719A36D5800324DB8 = {
-						TestTargetID = FEB9C26419A36D8C00324DB8;
-					};
-					FEB9C27B19A36D8C00324DB8 = {
-						TestTargetID = FEB9C26419A36D8C00324DB8;
-					};
-				};
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "@sodastsai";
 			};
 			buildConfigurationList = FEB9C23319A36D5800324DB8 /* Build configuration list for PBXProject "PDFImage" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -371,37 +193,16 @@
 			projectRoot = "";
 			targets = (
 				FEB9C23719A36D5800324DB8 /* PDFImage */,
-				FEB9C24719A36D5800324DB8 /* PDFImageTests */,
 				FEB9C26419A36D8C00324DB8 /* PDFImage Example */,
-				FEB9C27B19A36D8C00324DB8 /* PDFImage ExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FEB9C24619A36D5800324DB8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C25619A36D5800324DB8 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEB9C26319A36D8C00324DB8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB9C29119A36DD400324DB8 /* MainStoryboard.storyboard in Resources */,
-				FEB9C26F19A36D8C00324DB8 /* InfoPlist.strings in Resources */,
-				FEB9C27719A36D8C00324DB8 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FEB9C27A19A36D8C00324DB8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C28719A36D8C00324DB8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,72 +219,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEB9C24419A36D5800324DB8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C25819A36D5800324DB8 /* PDFImageTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FEB9C26119A36D8C00324DB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB9C27119A36D8C00324DB8 /* main.m in Sources */,
-				FEB9C27519A36D8C00324DB8 /* PEAppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FEB9C27819A36D8C00324DB8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FEB9C28919A36D8C00324DB8 /* PDFImage_ExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FEB9C24F19A36D5800324DB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FEB9C23719A36D5800324DB8 /* PDFImage */;
-			targetProxy = FEB9C24E19A36D5800324DB8 /* PBXContainerItemProxy */;
-		};
-		FEB9C28119A36D8C00324DB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FEB9C26419A36D8C00324DB8 /* PDFImage Example */;
-			targetProxy = FEB9C28019A36D8C00324DB8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FEB9C25419A36D5800324DB8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEB9C25519A36D5800324DB8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FEB9C26D19A36D8C00324DB8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEB9C26E19A36D8C00324DB8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FEB9C28519A36D8C00324DB8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEB9C28619A36D8C00324DB8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FEB9C25919A36D5800324DB8 /* Debug */ = {
@@ -494,18 +237,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -518,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -532,24 +286,35 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -576,48 +341,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		FEB9C25F19A36D5800324DB8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImage Example.app/PDFImage Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PDFImage/PDFImage-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PDFImageTests/PDFImageTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FEB9C26019A36D5800324DB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImage Example.app/PDFImage Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PDFImage/PDFImage-Prefix.pch";
-				INFOPLIST_FILE = "PDFImageTests/PDFImageTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -665,48 +388,6 @@
 			};
 			name = Release;
 		};
-		FEB9C28E19A36D8C00324DB8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImage Example.app/PDFImage Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PDFImage Example/PDFImage Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PDFImage ExampleTests/PDFImage ExampleTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FEB9C28F19A36D8C00324DB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImage Example.app/PDFImage Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PDFImage Example/PDFImage Example-Prefix.pch";
-				INFOPLIST_FILE = "PDFImage ExampleTests/PDFImage ExampleTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "tw.sodas.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -728,29 +409,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEB9C25E19A36D5800324DB8 /* Build configuration list for PBXNativeTarget "PDFImageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FEB9C25F19A36D5800324DB8 /* Debug */,
-				FEB9C26019A36D5800324DB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FEB9C28A19A36D8C00324DB8 /* Build configuration list for PBXNativeTarget "PDFImage Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEB9C28B19A36D8C00324DB8 /* Debug */,
 				FEB9C28C19A36D8C00324DB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FEB9C28D19A36D8C00324DB8 /* Build configuration list for PBXNativeTarget "PDFImage ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FEB9C28E19A36D8C00324DB8 /* Debug */,
-				FEB9C28F19A36D8C00324DB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

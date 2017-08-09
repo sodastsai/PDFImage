@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PIPDFPage : NSObject
 
++ (instancetype)new NS_UNAVAILABLE;
 - (nullable instancetype)init;
 
 @property(nonatomic, assign, readonly) CGPDFPageRef CGPDFPage;

@@ -103,7 +103,8 @@
 
 - (void)dealloc {
     if (_CGPDFDocument) {
-        CGPDFDocumentRelease(_CGPDFDocument), _CGPDFDocument = NULL;
+        CGPDFDocumentRelease(_CGPDFDocument);
+        _CGPDFDocument = NULL;
     }
 }
 

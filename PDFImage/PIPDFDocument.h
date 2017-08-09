@@ -34,16 +34,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable instancetype)PDFDocumentWithContentsOfFile:(nullable NSString *)path;
 + (nullable instancetype)PDFDocumentWithData:(NSData *)data;
 
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 - (nullable instancetype)initWithContentsOfURL:(nullable NSURL *)url;
 - (nullable instancetype)initWithContentsOfFile:(nullable NSString *)path;
 - (nullable instancetype)initWithData:(NSData *)data;
-- (nullable instancetype)initWithCGPDFDocument:(CGPDFDocumentRef)pdfDocumentRef NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCGPDFDocument:(CGPDFDocumentRef)pdfDocument
+    NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(pdfDocument:));
 
 @property (readonly) NSUInteger numberOfPages;
-- (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber;
+- (nullable PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber NS_SWIFT_NAME(page(at:));
 - (PIPDFPage *)objectAtIndexedSubscript:(NSUInteger)idx;
 
-@property (readonly) NSEnumerator PIGenerics(PIPDFPage *) *pageEnumerator;
+@property (readonly) NSEnumerator<PIPDFPage *> *pageEnumerator;
 
 @end
 
