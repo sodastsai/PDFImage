@@ -2,9 +2,6 @@
 //  PDFImageTests.m
 //  PDFImageTests
 //
-//  Created by sodas on 8/19/14.
-//  Copyright (c) 2014 sodas. All rights reserved.
-//
 
 #import <XCTest/XCTest.h>
 

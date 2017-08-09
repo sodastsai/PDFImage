@@ -2,11 +2,8 @@
 //  PIUtilities.h
 //  PDFImage
 //
-//  Created by sodas on 8/4/15.
-//  Copyright © 2015 sodas. All rights reserved.
-//
 /*
- Copyright 2014-2015 sodastsai.
+ Copyright 2014-2017 Tien-Che Tsai (@sodastsai).
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
