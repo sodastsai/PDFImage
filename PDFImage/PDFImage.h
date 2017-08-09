@@ -21,8 +21,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#import <PDFImage/PIUtilities.h>
-
 #import <PDFImage/PIPDFDocument.h>
 #import <PDFImage/PIPDFPage.h>
 #import <PDFImage/UIImage+PDFImage.h>
