@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE45959B1B70C61B00AC1482 /* PIUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FE45959A1B70C61B00AC1482 /* PIUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEB9C23C19A36D5800324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
 		FEB9C26619A36D8C00324DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C23B19A36D5800324DB8 /* Foundation.framework */; };
 		FEB9C26819A36D8C00324DB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB9C26719A36D8C00324DB8 /* CoreGraphics.framework */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FE45959A1B70C61B00AC1482 /* PIUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIUtilities.h; sourceTree = "<group>"; };
 		FEB9C23819A36D5800324DB8 /* libPDFImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPDFImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9C23B19A36D5800324DB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FEB9C23F19A36D5800324DB8 /* PDFImage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDFImage-Prefix.pch"; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				FEB9C24019A36D5800324DB8 /* PDFImage.h */,
-				FE45959A1B70C61B00AC1482 /* PIUtilities.h */,
 				FEB9C29219A36E1E00324DB8 /* PIPDFDocument.h */,
 				FEB9C29319A36E1E00324DB8 /* PIPDFDocument.m */,
 				FEF0FFC619A371BF001B5DDF /* PIPDFPage_Internal.h */,
@@ -129,7 +126,6 @@
 				FEF0FFC919A38D45001B5DDF /* UIImage+PDFImage.h in Headers */,
 				FEB9C29619A36E2E00324DB8 /* PDFImage.h in Headers */,
 				FEB9C29719A36E2E00324DB8 /* PIPDFDocument.h in Headers */,
-				FE45959B1B70C61B00AC1482 /* PIUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

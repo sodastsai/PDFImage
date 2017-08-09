@@ -21,11 +21,11 @@
 #import "PIPDFDocument.h"
 #import "PIPDFPage_Internal.h"
 
-@interface PIPDFDocumentPageEnumerator : NSEnumerator PIGenerics(PIPDFPage *)
+@interface PIPDFDocumentPageEnumerator : NSEnumerator<PIPDFPage *>
 
-@property(nonatomic, strong) PIPDFDocument *pdfDocument;
-@property(nonatomic, assign) NSInteger pdfPageCount;
-@property(nonatomic, assign) NSInteger currentPageIndex;
+@property (nonatomic, strong) PIPDFDocument *pdfDocument;
+@property (nonatomic, assign) NSInteger pdfPageCount;
+@property (nonatomic, assign) NSInteger currentPageIndex;
 
 - (instancetype)initWithPDFDocument:(PIPDFDocument *)document;
 
@@ -33,7 +33,8 @@
 
 @interface PIPDFDocument ()
 
-@property(nonatomic, assign, readwrite) CGPDFDocumentRef CGPDFDocument;
+@property (nonatomic, assign, readwrite) CGPDFDocumentRef CGPDFDocument;
+@property (nonatomic, readonly, class) NSCache<NSString *, PIPDFPage *> *sharedPageCache;
 
 @end
 
@@ -110,7 +111,7 @@
 
 #pragma mark - Cache
 
-+ (NSCache PIGenerics(NSString *, PIPDFPage *) *)sharedPageCache {
++ (NSCache<NSString *, PIPDFPage *> *)sharedPageCache {
     static NSCache *sharedPageCache = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -131,19 +132,19 @@
 }
 
 - (PIPDFPage *)pageAtPageNumber:(NSUInteger)pageNumber {
-    NSString *cacheKey = [[self class] cacheForPDFPageAtPageNumber:pageNumber inDocument:self];
-    PIPDFPage *result = [[[self class] sharedPageCache] objectForKey:cacheKey];
+    NSString *cacheKey = [self.class cacheForPDFPageAtPageNumber:pageNumber inDocument:self];
+    PIPDFPage *result = [self.class.sharedPageCache objectForKey:cacheKey];
     if (!result) {
         CGPDFPageRef pdfPage = CGPDFDocumentGetPage(self.CGPDFDocument, pageNumber);
         if (pdfPage) {
             result = [[PIPDFPage alloc] initWithCGPDFPageRef:pdfPage];
-            [[[self class] sharedPageCache] setObject:result forKey:cacheKey];
+            [self.class.sharedPageCache setObject:result forKey:cacheKey];
         }
     }
     return result;
 }
 
-- (NSEnumerator PIGenerics(PIPDFPage *) *)pageEnumerator {
+- (NSEnumerator<PIPDFPage *> *)pageEnumerator {
     return [[PIPDFDocumentPageEnumerator alloc] initWithPDFDocument:self];
 }
 

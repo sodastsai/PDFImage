@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)new NS_UNAVAILABLE;
 - (nullable instancetype)init;
 
-@property(nonatomic, assign, readonly) CGPDFPageRef CGPDFPage;
+@property (nonatomic, assign, readonly) CGPDFPageRef CGPDFPage;
 
 - (CGRect)rectOfPDFBox:(PIPDFBox)pdfBox;
 

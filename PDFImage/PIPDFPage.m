@@ -23,7 +23,7 @@
 
 @interface PIPDFPage ()
 
-@property(nonatomic, assign, readwrite) CGPDFPageRef CGPDFPage;
+@property (nonatomic, assign, readwrite) CGPDFPageRef CGPDFPage;
 
 @end
 
